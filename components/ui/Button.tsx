@@ -1,4 +1,4 @@
-import { ReactNode, ButtonHTMLAttributes } from "react";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "outline";
@@ -11,7 +11,8 @@ export default function Button({
   className = "",
   ...props
 }: ButtonProps) {
-  const baseStyles = "px-6 py-3 rounded-lg font-semibold transition-colors inline-block";
+  const baseStyles =
+    "px-6 py-3 rounded-lg font-semibold transition-colors inline-block";
   const variants = {
     primary: "bg-emerald-600 text-white hover:bg-emerald-700",
     secondary: "bg-emerald-accent text-gray-900 hover:bg-yellow-400",
@@ -19,7 +20,10 @@ export default function Button({
   };
 
   return (
-    <button className={`${baseStyles} ${variants[variant]} ${className}`} {...props}>
+    <button
+      className={`${baseStyles} ${variants[variant]} ${className}`}
+      {...props}
+    >
       {children}
     </button>
   );

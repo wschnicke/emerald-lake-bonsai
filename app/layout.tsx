@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
 import "./globals.css";
 
 const polymath = localFont({
@@ -27,7 +27,14 @@ export const metadata: Metadata = {
   },
   description:
     "Professional bonsai services, education, and workshops in the Puget Sound area. Specializing in repotting, styling, wiring, and maintenance.",
-  keywords: ["bonsai", "puget sound", "seattle", "gardening", "trees", "emerald lake"],
+  keywords: [
+    "bonsai",
+    "puget sound",
+    "seattle",
+    "gardening",
+    "trees",
+    "emerald lake",
+  ],
 };
 
 export default function RootLayout({

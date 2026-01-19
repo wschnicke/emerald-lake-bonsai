@@ -1,10 +1,10 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import readingTime from 'reading-time';
-import type { BlogPost, BlogPostMetadata } from '@/types/blog';
+import fs from "node:fs";
+import path from "node:path";
+import matter from "gray-matter";
+import readingTime from "reading-time";
+import type { BlogPost, BlogPostMetadata } from "@/types/blog";
 
-const contentDirectory = path.join(process.cwd(), 'content/blog');
+const contentDirectory = path.join(process.cwd(), "content/blog");
 
 /**
  * Get all blog posts from the content/blog directory
@@ -16,12 +16,12 @@ export async function getAllPosts(): Promise<BlogPost[]> {
   }
 
   const files = fs.readdirSync(contentDirectory);
-  const mdxFiles = files.filter((file) => file.endsWith('.mdx'));
+  const mdxFiles = files.filter((file) => file.endsWith(".mdx"));
 
   const posts = mdxFiles.map((filename) => {
-    const slug = filename.replace(/\.mdx$/, '');
+    const slug = filename.replace(/\.mdx$/, "");
     const filePath = path.join(contentDirectory, filename);
-    const fileContents = fs.readFileSync(filePath, 'utf8');
+    const fileContents = fs.readFileSync(filePath, "utf8");
     const { data, content } = matter(fileContents);
 
     const metadata = data as BlogPostMetadata;
@@ -61,7 +61,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     return null;
   }
 
-  const fileContents = fs.readFileSync(filePath, 'utf8');
+  const fileContents = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContents);
 
   const metadata = data as BlogPostMetadata;

@@ -1,6 +1,6 @@
+import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
 import Link from "next/link";
-import type { MDXComponents } from "mdx/types";
 
 export const mdxComponents: MDXComponents = {
   h1: ({ children }) => (
@@ -15,7 +15,9 @@ export const mdxComponents: MDXComponents = {
   h4: ({ children }) => (
     <h4 className="text-xl font-bold mb-2 mt-4">{children}</h4>
   ),
-  p: ({ children }) => <p className="mb-4 leading-relaxed text-gray-700">{children}</p>,
+  p: ({ children }) => (
+    <p className="mb-4 leading-relaxed text-gray-700">{children}</p>
+  ),
   a: ({ href, children }) => (
     <Link
       href={href as string}
@@ -24,8 +26,12 @@ export const mdxComponents: MDXComponents = {
       {children}
     </Link>
   ),
-  ul: ({ children }) => <ul className="list-disc list-inside mb-4 space-y-2">{children}</ul>,
-  ol: ({ children }) => <ol className="list-decimal list-inside mb-4 space-y-2">{children}</ol>,
+  ul: ({ children }) => (
+    <ul className="list-disc list-inside mb-4 space-y-2">{children}</ul>
+  ),
+  ol: ({ children }) => (
+    <ol className="list-decimal list-inside mb-4 space-y-2">{children}</ol>
+  ),
   li: ({ children }) => <li className="text-gray-700">{children}</li>,
   blockquote: ({ children }) => (
     <blockquote className="border-l-4 border-emerald-600 pl-4 italic my-4 text-gray-600">
