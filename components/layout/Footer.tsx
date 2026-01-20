@@ -1,12 +1,5 @@
 import Link from "next/link";
-
-const letterheadFeatures = {
-  fontFeatureSettings: '"ss03", "ss08", "ss09", "ss10", "ss11", "ss13", "ss15"',
-};
-
-const fontFeatures = {
-  fontFeatureSettings: '"ss03", "ss09", "ss10", "ss11", "ss13", "ss15"',
-};
+import { fontFeatures } from "@/lib/fonts";
 
 const linkClassName = "text-gray-600 hover:text-emerald-600 transition-colors";
 
@@ -18,16 +11,19 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-8">
           <div>
-            <h3 className="font-bold text-lg mb-4" style={letterheadFeatures}>
+            <h3
+              className="font-bold text-lg mb-4"
+              style={fontFeatures.letterhead}
+            >
               Emerald Lake Garden
             </h3>
-            <p className="text-gray-600" style={fontFeatures}>
+            <p className="text-gray-600" style={fontFeatures.heading}>
               Puget Sound bonsai journeyman
             </p>
           </div>
 
           <div>
-            <h3 className="font-bold text-lg mb-4" style={fontFeatures}>
+            <h3 className="font-bold text-lg mb-4" style={fontFeatures.heading}>
               Connect
             </h3>
             <ul className="space-y-2">
@@ -35,7 +31,7 @@ export default function Footer() {
                 <a
                   href="mailto:will@emeraldlakebonsai.com"
                   className={linkClassName}
-                  style={fontFeatures}
+                  style={fontFeatures.heading}
                 >
                   Email
                 </a>
@@ -46,7 +42,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={linkClassName}
-                  style={fontFeatures}
+                  style={fontFeatures.heading}
                 >
                   Bluesky
                 </a>
@@ -57,7 +53,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={linkClassName}
-                  style={fontFeatures}
+                  style={fontFeatures.heading}
                 >
                   Instagram
                 </a>
@@ -66,12 +62,16 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-bold text-lg mb-4" style={fontFeatures}>
+            <h3 className="font-bold text-lg mb-4" style={fontFeatures.heading}>
               Navigation
             </h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className={linkClassName} style={fontFeatures}>
+                <Link
+                  href="/"
+                  className={linkClassName}
+                  style={fontFeatures.heading}
+                >
                   Home
                 </Link>
               </li>
@@ -79,7 +79,7 @@ export default function Footer() {
                 <Link
                   href="/about"
                   className={linkClassName}
-                  style={fontFeatures}
+                  style={fontFeatures.heading}
                 >
                   About
                 </Link>
@@ -88,7 +88,7 @@ export default function Footer() {
                 <Link
                   href="/blog"
                   className={linkClassName}
-                  style={fontFeatures}
+                  style={fontFeatures.heading}
                 >
                   Blog
                 </Link>
@@ -98,7 +98,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 pt-8 border-t border-gray-200 text-center text-gray-600">
-          <p style={fontFeatures}>
+          <p style={fontFeatures.heading}>
             &copy; {currentYear} Emerald Lake Garden. All rights reserved.
           </p>
         </div>

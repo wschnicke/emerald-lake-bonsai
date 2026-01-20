@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Footer from "@/components/layout/Footer";
-import Header from "@/components/layout/Header";
+import ScrollingHeader from "@/components/layout/ScrollingHeader";
 import "./globals.css";
 
 const polymath = localFont({
@@ -45,7 +45,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={polymath.variable}>
       <body className="antialiased">
-        <Header />
+        <ScrollingHeader />
         <main className="min-h-screen">{children}</main>
         <Footer />
       </body>

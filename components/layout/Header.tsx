@@ -1,12 +1,5 @@
 import Link from "next/link";
-
-const letterheadFeatures = {
-  fontFeatureSettings: '"ss03", "ss08", "ss09", "ss10", "ss11", "ss13", "ss15"',
-};
-
-const fontFeatures = {
-  fontFeatureSettings: '"ss03", "ss09", "ss10", "ss11", "ss13", "ss15"',
-};
+import { fontFeatures } from "@/lib/fonts";
 
 export default function Header() {
   return (
@@ -16,7 +9,7 @@ export default function Header() {
           <Link
             href="/"
             className="text-2xl font-bold text-foreground hover:text-emerald-600 transition-colors"
-            style={letterheadFeatures}
+            style={fontFeatures.letterhead}
           >
             Emerald Lake Garden
           </Link>
@@ -26,7 +19,7 @@ export default function Header() {
               <Link
                 href="/"
                 className="text-foreground hover:text-emerald-600 transition-colors font-medium"
-                style={fontFeatures}
+                style={fontFeatures.heading}
               >
                 Home
               </Link>
@@ -35,7 +28,7 @@ export default function Header() {
               <Link
                 href="/about"
                 className="text-foreground hover:text-emerald-600 transition-colors font-medium"
-                style={fontFeatures}
+                style={fontFeatures.heading}
               >
                 About
               </Link>
@@ -44,7 +37,7 @@ export default function Header() {
               <Link
                 href="/blog"
                 className="text-foreground hover:text-emerald-600 transition-colors font-medium"
-                style={fontFeatures}
+                style={fontFeatures.heading}
               >
                 Blog
               </Link>
