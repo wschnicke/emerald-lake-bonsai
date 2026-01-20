@@ -14,12 +14,12 @@ export default function RecentPostsSection({ posts }: RecentPostsSectionProps) {
   }
 
   return (
-    <section className="py-16">
+    <section>
       <h2
         className="text-3xl md:text-4xl font-bold mb-8 text-gray-900"
         style={fontFeatures.heading}
       >
-        Adventures on the Mississippi
+        Recent Posts
       </h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
         {posts.map((post) => (

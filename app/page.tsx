@@ -12,8 +12,8 @@ export default async function Home() {
       <HeroSection />
 
       <Container>
-        <RecentPostsSection posts={recentPosts} />
         <AboutSection />
+        <RecentPostsSection posts={recentPosts} />
       </Container>
     </>
   );
