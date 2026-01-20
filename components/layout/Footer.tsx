@@ -67,13 +67,13 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2">
               <li>
-                <Link
-                  href="/"
+                <a
+                  href="/#"
                   className={linkClassName}
                   style={fontFeatures.heading}
                 >
                   Home
-                </Link>
+                </a>
               </li>
               <li>
                 <Link
