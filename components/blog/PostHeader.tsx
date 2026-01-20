@@ -12,9 +12,9 @@ interface PostHeaderProps {
 
 export default function PostHeader({ metadata, readingTime }: PostHeaderProps) {
   return (
-    <header className="mb-12">
+    <header className="mb-8">
       {metadata.featuredImage && (
-        <div className="relative w-full aspect-4/3 mb-8 rounded-lg overflow-hidden">
+        <div className="relative w-full aspect-4/3 mb-4 rounded-lg overflow-hidden">
           <Image
             src={metadata.featuredImage}
             alt={metadata.title}
@@ -32,7 +32,7 @@ export default function PostHeader({ metadata, readingTime }: PostHeaderProps) {
         {metadata.title}
       </h1>
 
-      <div className="flex flex-wrap items-center gap-4 text-gray-600 mb-6">
+      <div className="flex flex-wrap items-center gap-4 text-gray-600 mb-2">
         <span>{metadata.author}</span>
         <span>•</span>
         <time dateTime={metadata.date}>

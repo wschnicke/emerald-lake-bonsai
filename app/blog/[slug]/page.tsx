@@ -62,7 +62,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       </div>
 
       {post.metadata.tags && post.metadata.tags.length > 0 && (
-        <div className="mt-12 pt-8 border-t border-gray-200">
+        <div className="mt-12 pt-4 border-t border-gray-200">
           <h3 className="text-sm font-semibold text-gray-600 mb-3">Tags</h3>
           <div className="flex flex-wrap">
             {post.metadata.tags.map((tag) => (
@@ -72,7 +72,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </div>
       )}
 
-      <div className="mt-8">
+      <div className="mt-4">
         <Link
           href="/blog"
           className="text-emerald-600 hover:text-emerald-700 font-medium inline-flex items-center"
