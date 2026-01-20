@@ -46,6 +46,7 @@ export default function RootLayout({
     <html lang="en" className={polymath.variable}>
       <body className="antialiased">
         <ScrollingHeader />
+        <div id="top" />
         <main className="min-h-screen">{children}</main>
         <Footer />
       </body>

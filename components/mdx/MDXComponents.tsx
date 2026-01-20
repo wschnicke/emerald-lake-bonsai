@@ -40,10 +40,15 @@ export const mdxComponents: MDXComponents = {
     </Link>
   ),
   ul: ({ children }) => (
-    <ul className="list-disc space-y-1 [&_ul]:ml-6 [&_ul]:mt-1 [&_ol]:ml-6 [&_ol]:mt-1">{children}</ul>
+    <ul className="list-disc space-y-1 [&_ul]:ml-6 [&_ul]:mt-1 [&_ol]:ml-6 [&_ol]:mt-1">
+      {children}
+    </ul>
   ),
   ol: ({ children, className: _, ...props }) => (
-    <ol className="list-decimal space-y-1 [&_ul]:ml-6 [&_ul]:mt-1 [&_ol]:ml-6 [&_ol]:mt-1" {...props}>
+    <ol
+      className="list-decimal space-y-1 [&_ul]:ml-6 [&_ul]:mt-1 [&_ol]:ml-6 [&_ol]:mt-1"
+      {...props}
+    >
       {children}
     </ol>
   ),

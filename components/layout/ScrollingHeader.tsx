@@ -5,15 +5,21 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { fontFeatures } from "@/lib/fonts";
 
+const navLinks = [
+  { href: "/#top", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/blog", label: "Blog" },
+];
+
 export default function ScrollingHeader() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Only use transparent header on homepage
-  const transparent = pathname === "/";
+  const isHomepage = pathname === "/";
+  const showLightText = isHomepage && !isScrolled;
 
   useEffect(() => {
-    if (!transparent) return;
+    if (!isHomepage) return;
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -22,66 +28,41 @@ export default function ScrollingHeader() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [transparent]);
+  }, [isHomepage]);
 
-  const headerClasses = transparent
-    ? isScrolled
-      ? "bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm"
-      : "bg-transparent border-transparent"
-    : "bg-white/90 backdrop-blur-sm border-b border-gray-200";
+  const baseHeaderClasses = "top-0 z-50 transition-all duration-300";
+  const headerClasses = showLightText
+    ? `fixed left-0 right-0 bg-transparent border-transparent ${baseHeaderClasses}`
+    : `${isHomepage ? "fixed left-0 right-0" : "sticky"} bg-white/90 backdrop-blur-sm border-b border-gray-200 shadow-md ${baseHeaderClasses}`;
 
-  const textClasses =
-    transparent && !isScrolled ? "text-white" : "text-foreground";
-  const hoverClasses =
-    transparent && !isScrolled
-      ? "hover:text-emerald-300"
-      : "hover:text-emerald-600";
-
-  // Use fixed positioning on homepage, sticky on other pages
-  const positionClass = transparent ? "fixed" : "sticky";
+  const linkClasses = showLightText
+    ? "text-white hover:text-emerald-300 transition-colors"
+    : "text-foreground hover:text-emerald-600 transition-colors";
 
   return (
-    <header
-      className={`${positionClass} top-0 left-0 right-0 z-50 transition-all duration-300 ${headerClasses}`}
-    >
+    <header className={headerClasses}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav className="flex items-center justify-between h-16">
           <Link
-            href="/"
-            className={`text-2xl font-bold ${textClasses} ${hoverClasses} transition-colors`}
+            href="/#top"
+            className={`text-2xl font-bold ${linkClasses}`}
             style={fontFeatures.letterhead}
           >
             Emerald Lake Garden
           </Link>
 
           <ul className="flex gap-8">
-            <li>
-              <Link
-                href="/"
-                className={`${textClasses} ${hoverClasses} transition-colors font-medium`}
-                style={fontFeatures.heading}
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/about"
-                className={`${textClasses} ${hoverClasses} transition-colors font-medium`}
-                style={fontFeatures.heading}
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/blog"
-                className={`${textClasses} ${hoverClasses} transition-colors font-medium`}
-                style={fontFeatures.heading}
-              >
-                Blog
-              </Link>
-            </li>
+            {navLinks.map(({ href, label }) => (
+              <li key={href}>
+                <Link
+                  href={href}
+                  className={`font-medium ${linkClasses}`}
+                  style={fontFeatures.heading}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>

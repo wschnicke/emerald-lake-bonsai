@@ -20,7 +20,10 @@ export default function Footer() {
             <p className="text-gray-600" style={fontFeatures.heading}>
               Will Schnicke
               <br />
-              <a href="mailto:will@emeraldlakebonsai.com" className="underline hover:text-emerald-600 transition-colors">
+              <a
+                href="mailto:will@emeraldlakebonsai.com"
+                className="underline hover:text-emerald-600 transition-colors"
+              >
                 will@emeraldlakebonsai.com
               </a>
               <br />
@@ -73,13 +76,13 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2">
               <li>
-                <a
-                  href="/#"
+                <Link
+                  href="/#top"
                   className={linkClassName}
                   style={fontFeatures.heading}
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
                 <Link

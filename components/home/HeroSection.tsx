@@ -66,8 +66,7 @@ export default function HeroSection() {
         </h1>
 
         <p className="text-xl md:text-3xl font-light max-w-3xl md:mx-auto drop-shadow-md text-left md:text-center">
-          Truth is stranger than fiction, but it is because Fiction is obliged
-          to stick to possibilities
+          Growing together in bonsai practice
         </p>
       </div>
 
