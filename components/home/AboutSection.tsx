@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import Button from "@/components/ui/Button";
 import { fontFeatures } from "@/lib/fonts";
 
@@ -15,7 +15,8 @@ export default function AboutSection() {
             Collaboration first bonsai services and education
           </h2>
           <p className="text-lg text-gray-900 mb-8 leading-relaxed">
-            Emerald Lake Garden is a garden and practice focused on working and learning with you to create beautiful bonsai.
+            Emerald Lake Garden is a garden and practice focused on working and
+            learning with you to create beautiful bonsai.
           </p>
           <Link href="/about">
             <Button variant="outline">Learn more</Button>

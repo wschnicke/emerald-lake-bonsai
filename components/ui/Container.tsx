@@ -11,9 +11,7 @@ export default function Container({
 }: ContainerProps) {
   return (
     <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${className}`}>
-      <div className="*:py-8 [&>*:last-child]:pb-0">
-        {children}
-      </div>
+      <div className="*:py-8 [&>*:last-child]:pb-0">{children}</div>
     </div>
   );
 }

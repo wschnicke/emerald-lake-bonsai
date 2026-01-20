@@ -1,10 +1,33 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { fontFeatures } from "@/lib/fonts";
 import ScrollIndicator from "./ScrollIndicator";
 
 export default function HeroSection() {
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroHeight =
+        window.innerHeight *
+        (window.innerWidth >= 768
+          ? window.innerWidth >= 1024
+            ? 1.4
+            : 1.2
+          : 1);
+      setIsVisible(window.scrollY < heroHeight);
+    };
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <section className="relative h-screen md:h-[120vh] lg:h-[140vh] w-full flex items-center justify-center">
+    <section className="relative h-screen md:h-[120vh] lg:h-[140vh] w-full">
       {/* Hero Background Image */}
       <Image
         src="/images/hero.png"
@@ -19,7 +42,9 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-black/40" />
 
       {/* Hero Content */}
-      <div className="relative z-10 text-white px-4">
+      <div
+        className={`sticky top-[50vh] -translate-y-1/2 w-full z-10 text-white px-4 text-center transition-opacity duration-300 ${isVisible ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+      >
         {/* Mobile: Vertical Layout */}
         <h1
           className="block md:hidden text-6xl font-bold text-left mb-6 drop-shadow-lg leading-[0.85]"
