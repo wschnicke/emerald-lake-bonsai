@@ -18,6 +18,12 @@ export default function Footer() {
               Emerald Lake Garden
             </h3>
             <p className="text-gray-600" style={fontFeatures.heading}>
+              Will Schnicke
+              <br />
+              <a href="mailto:will@emeraldlakebonsai.com" className="underline hover:text-emerald-600 transition-colors">
+                will@emeraldlakebonsai.com
+              </a>
+              <br />
               Puget Sound bonsai journeyman
             </p>
           </div>
