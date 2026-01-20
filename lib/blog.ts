@@ -7,6 +7,15 @@ import type { BlogPost, BlogPostMetadata } from "@/types/blog";
 const contentDirectory = path.join(process.cwd(), "content/blog");
 
 /**
+ * Parse a date string (YYYY-MM-DD) as local time instead of UTC.
+ * This prevents timezone issues where dates shift by a day.
+ */
+export function parseLocalDate(dateStr: string): Date {
+  const [year, month, day] = dateStr.split("-").map(Number);
+  return new Date(year, month - 1, day);
+}
+
+/**
  * Get all blog posts from the content/blog directory
  */
 export async function getAllPosts(): Promise<BlogPost[]> {
@@ -37,8 +46,8 @@ export async function getAllPosts(): Promise<BlogPost[]> {
 
   // Sort by date (newest first)
   return posts.sort((a, b) => {
-    const dateA = new Date(a.metadata.date);
-    const dateB = new Date(b.metadata.date);
+    const dateA = parseLocalDate(a.metadata.date);
+    const dateB = parseLocalDate(b.metadata.date);
     return dateB.getTime() - dateA.getTime();
   });
 }

@@ -1,5 +1,6 @@
 import { format } from "date-fns";
 import Image from "next/image";
+import { parseLocalDate } from "@/lib/blog";
 import { fontFeatures } from "@/lib/fonts";
 import type { BlogPostMetadata } from "@/types/blog";
 import TagBadge from "./TagBadge";
@@ -13,12 +14,12 @@ export default function PostHeader({ metadata, readingTime }: PostHeaderProps) {
   return (
     <header className="mb-12">
       {metadata.featuredImage && (
-        <div className="relative w-full h-64 md:h-96 mb-8 rounded-lg overflow-hidden">
+        <div className="relative w-full aspect-4/3 mb-8 rounded-lg overflow-hidden">
           <Image
             src={metadata.featuredImage}
             alt={metadata.title}
             fill
-            className="object-cover"
+            className="object-cover object-top"
             priority
           />
         </div>
@@ -35,7 +36,7 @@ export default function PostHeader({ metadata, readingTime }: PostHeaderProps) {
         <span>{metadata.author}</span>
         <span>•</span>
         <time dateTime={metadata.date}>
-          {format(new Date(metadata.date), "MMMM d, yyyy")}
+          {format(parseLocalDate(metadata.date), "MMMM d, yyyy")}
         </time>
         <span>•</span>
         <span>{readingTime}</span>

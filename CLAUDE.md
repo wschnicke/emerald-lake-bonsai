@@ -108,6 +108,9 @@ Apply this to all `<h1>`, `<h2>` elements and other important headings.
 
 Blog posts are `.mdx` files in `content/blog/` with frontmatter metadata:
 
+You MUST NEVER change the copy of a blog post. If you are asked to edit the formatting, YOU MUST
+retain all original content text.
+
 ```mdx
 ---
 title: "Post Title"

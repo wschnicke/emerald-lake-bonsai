@@ -15,7 +15,7 @@ export default async function BlogPage() {
 
   return (
     <Container>
-      <div className="py-12">
+      <div className="py-8">
         <h1
           className="text-4xl md:text-5xl font-bold mb-4 text-gray-900"
           style={fontFeatures.heading}
@@ -29,7 +29,7 @@ export default async function BlogPage() {
       </div>
 
       {posts.length === 0 ? (
-        <div className="py-12 text-center text-gray-600">
+        <div className="py-8 text-center text-gray-600">
           <p>No blog posts yet. Check back soon!</p>
         </div>
       ) : (

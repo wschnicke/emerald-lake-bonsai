@@ -2,6 +2,7 @@ import { format } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
 import Card from "@/components/ui/Card";
+import { parseLocalDate } from "@/lib/blog";
 import { fontFeatures } from "@/lib/fonts";
 import type { BlogPost } from "@/types/blog";
 import TagBadge from "./TagBadge";
@@ -25,7 +26,7 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
               src={metadata.featuredImage}
               alt={metadata.title}
               fill
-              className="object-cover"
+              className="object-cover object-top"
             />
           </div>
         )}
@@ -40,7 +41,7 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
 
           <div className="flex items-center gap-2 text-sm text-gray-600 mb-3">
             <time dateTime={metadata.date}>
-              {format(new Date(metadata.date), "MMM d, yyyy")}
+              {format(parseLocalDate(metadata.date), "MMM d, yyyy")}
             </time>
             <span>•</span>
             <span>{readingTime}</span>

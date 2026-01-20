@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import PostHeader from "@/components/blog/PostHeader";
 import TagBadge from "@/components/blog/TagBadge";
 import { mdxComponents } from "@/components/mdx/MDXComponents";
@@ -49,11 +50,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   }
 
   return (
-    <article className="max-w-3xl mx-auto px-4 py-12">
+    <article className="max-w-3xl mx-auto px-4 py-8">
       <PostHeader metadata={post.metadata} readingTime={post.readingTime} />
 
       <div className="prose prose-lg max-w-none">
-        <MDXRemote source={post.content} components={mdxComponents} />
+        <MDXRemote
+          source={post.content}
+          components={mdxComponents}
+          options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+        />
       </div>
 
       {post.metadata.tags && post.metadata.tags.length > 0 && (

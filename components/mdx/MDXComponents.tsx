@@ -18,10 +18,12 @@ export const mdxComponents: MDXComponents = {
   p: ({ children }) => (
     <p className="mb-4 leading-relaxed text-gray-700">{children}</p>
   ),
-  a: ({ href, children }) => (
+  a: ({ href, children, id, ...props }) => (
     <Link
       href={href as string}
-      className="text-emerald-600 hover:text-emerald-700 underline underline-offset-2"
+      id={id}
+      className="text-emerald-600 hover:text-emerald-700 underline underline-offset-2 scroll-mt-20"
+      {...props}
     >
       {children}
     </Link>
@@ -29,10 +31,16 @@ export const mdxComponents: MDXComponents = {
   ul: ({ children }) => (
     <ul className="list-disc list-inside mb-4 space-y-2">{children}</ul>
   ),
-  ol: ({ children }) => (
-    <ol className="list-decimal list-inside mb-4 space-y-2">{children}</ol>
+  ol: ({ children, ...props }) => (
+    <ol className="list-decimal list-inside mb-4 space-y-2" {...props}>
+      {children}
+    </ol>
   ),
-  li: ({ children }) => <li className="text-gray-700">{children}</li>,
+  li: ({ children, id, ...props }) => (
+    <li id={id} className="text-gray-700 scroll-mt-20" {...props}>
+      {children}
+    </li>
+  ),
   blockquote: ({ children }) => (
     <blockquote className="border-l-4 border-emerald-600 pl-4 italic my-4 text-gray-600">
       {children}
@@ -58,4 +66,10 @@ export const mdxComponents: MDXComponents = {
     />
   ),
   hr: () => <hr className="my-8 border-gray-200" />,
+  sup: ({ children, ...props }) => <sup {...props}>{children}</sup>,
+  section: ({ children, ...props }) => (
+    <section className="mt-8 pt-4 border-t border-gray-200 text-sm" {...props}>
+      {children}
+    </section>
+  ),
 };
