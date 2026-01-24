@@ -16,7 +16,7 @@ export default function ScrollToTopLink({
   };
 
   return (
-    <Link href="/#top" onClick={handleClick} {...props}>
+    <Link href="/" onClick={handleClick} {...props}>
       {children}
     </Link>
   );

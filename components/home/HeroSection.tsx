@@ -5,14 +5,9 @@ import { useEffect, useState } from "react";
 import { fontFeatures } from "@/lib/fonts";
 import ScrollIndicator from "./ScrollIndicator";
 
-const BLUR_DATA_URL_MOBILE =
-  "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAABQAwCdASoUAA8APzmEuVOvKKWisAgB4CcJQAAG/58bs6aWAAD3LhTPBWvWv4oW8I5MluVlUdsc2H9tN8dCJ9Y/s0SNhtP4/ZETzcTv+9RLMcCFuL61PMbnZ3h4+OOH924XCwOC5P1cETCq68+dxPq0AAA=";
-
-const BLUR_DATA_URL_DESKTOP =
-  "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAAAwAwCdASoUAA8APzmEuVOvKKWisAgB4CcJQAAG/58bsnwAAPcuFM8Fa9a/ihbwjkyW5WVR2xzYf203x0In1j+zRI2G0/j9kRPNxO/71EsxwIW4vrU8xudneHj444f3bhcLA4LlD3MCq/HXWRfO4n1aAAA=";
-
 export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(true);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,16 +29,23 @@ export default function HeroSection() {
 
   return (
     <section className="relative h-screen md:h-[120vh] lg:h-[140vh] w-full">
+      {/* Background gradient - shows while image loads */}
+      <div
+        className="absolute inset-0 bg-gradient-to-br from-sky-100 to-emerald-100"
+        aria-hidden="true"
+      />
+
       {/* Hero Background Image - Mobile */}
       <Image
         src="/images/hero-mobile.webp"
         alt=""
         fill
         priority
-        placeholder="blur"
-        blurDataURL={BLUR_DATA_URL_MOBILE}
-        className="md:hidden object-cover object-top"
+        className={`md:hidden object-cover object-top transition-opacity duration-500 ${
+          imageLoaded ? "opacity-100" : "opacity-0"
+        }`}
         sizes="100vw"
+        onLoad={() => setImageLoaded(true)}
       />
 
       {/* Hero Background Image - Desktop */}
@@ -52,10 +54,11 @@ export default function HeroSection() {
         alt=""
         fill
         priority
-        placeholder="blur"
-        blurDataURL={BLUR_DATA_URL_DESKTOP}
-        className="hidden md:block object-cover object-top"
+        className={`hidden md:block object-cover object-top transition-opacity duration-500 ${
+          imageLoaded ? "opacity-100" : "opacity-0"
+        }`}
         sizes="100vw"
+        onLoad={() => setImageLoaded(true)}
       />
 
       {/* Dark Overlay for better text contrast */}
