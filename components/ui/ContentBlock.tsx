@@ -20,7 +20,7 @@ export default function ContentBlock({
         className={`relative aspect-4/3 w-full ${reversed ? "lg:order-1" : "lg:order-2"}`}
       >
         <Image
-             src={imageSrc}
+          src={imageSrc}
           alt={imageAlt}
           fill
           className="object-cover object-top rounded-md"

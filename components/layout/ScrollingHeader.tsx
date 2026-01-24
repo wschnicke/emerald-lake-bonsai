@@ -23,17 +23,19 @@ export default function ScrollingHeader() {
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 50);
+      setIsScrolled(scrollPosition > 250);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isHomepage]);
 
-  const baseHeaderClasses = "top-0 z-50 transition-all duration-300";
+  const baseHeaderClasses = "top-0 z-50 transition-all duration-1000";
   const headerClasses = showLightText
     ? `fixed left-0 right-0 bg-transparent border-transparent ${baseHeaderClasses}`
-    : `${isHomepage ? "fixed left-0 right-0" : "sticky"} bg-white/90 backdrop-blur-sm border-b border-gray-200 shadow-md ${baseHeaderClasses}`;
+    : `${
+        isHomepage ? "fixed left-0 right-0" : "sticky"
+      } bg-white/90 backdrop-blur-sm border-b border-gray-200 shadow-md ${baseHeaderClasses}`;
 
   const linkClasses = showLightText
     ? "text-white hover:text-emerald-300 transition-colors"
