@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ScrollToTopLink from "@/components/ui/ScrollToTopLink";
 import { fontFeatures } from "@/lib/fonts";
 
 const linkClassName = "text-gray-600 hover:text-emerald-600 transition-colors";
@@ -76,13 +77,12 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2">
               <li>
-                <Link
-                  href="/#top"
+                <ScrollToTopLink
                   className={linkClassName}
                   style={fontFeatures.heading}
                 >
                   Home
-                </Link>
+                </ScrollToTopLink>
               </li>
               <li>
                 <Link

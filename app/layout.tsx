@@ -22,7 +22,7 @@ const polymath = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: "Emerald Lake Garden - Puget Sound Bonsai Journeyman",
+    default: "Emerald Lake Garden - Seattle Bonsai",
     template: "%s | Emerald Lake Garden",
   },
   description:
@@ -46,7 +46,6 @@ export default function RootLayout({
     <html lang="en" className={polymath.variable}>
       <body className="antialiased">
         <ScrollingHeader />
-        <div id="top" />
         <main className="min-h-screen">{children}</main>
         <Footer />
       </body>

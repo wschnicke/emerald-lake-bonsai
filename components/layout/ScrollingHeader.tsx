@@ -3,10 +3,10 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import ScrollToTopLink from "@/components/ui/ScrollToTopLink";
 import { fontFeatures } from "@/lib/fonts";
 
 const navLinks = [
-  { href: "/#top", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
 ];
@@ -45,15 +45,22 @@ export default function ScrollingHeader() {
     <header className={headerClasses}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav className="flex items-center justify-between h-16">
-          <Link
-            href="/#top"
+          <ScrollToTopLink
             className={`text-2xl font-bold ${linkClasses}`}
             style={fontFeatures.letterhead}
           >
             Emerald Lake Garden
-          </Link>
+          </ScrollToTopLink>
 
           <ul className="flex gap-8">
+            <li>
+              <ScrollToTopLink
+                className={`font-medium ${linkClasses}`}
+                style={fontFeatures.heading}
+              >
+                Home
+              </ScrollToTopLink>
+            </li>
             {navLinks.map(({ href, label }) => (
               <li key={href}>
                 <Link

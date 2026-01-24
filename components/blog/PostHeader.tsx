@@ -14,7 +14,7 @@ export default function PostHeader({ metadata, readingTime }: PostHeaderProps) {
   return (
     <header className="mb-8">
       {metadata.featuredImage && (
-        <div className="relative w-full aspect-4/3 mb-4 rounded-lg overflow-hidden">
+        <div className="relative w-full aspect-4/3 mb-4 rounded-lg overflow-hidden bg-gray-200">
           <Image
             src={metadata.featuredImage}
             alt={metadata.title}

@@ -7,6 +7,7 @@ import ScrollIndicator from "./ScrollIndicator";
 
 export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(true);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,22 +29,46 @@ export default function HeroSection() {
 
   return (
     <section className="relative h-screen md:h-[120vh] lg:h-[140vh] w-full">
-      {/* Hero Background Image */}
+      {/* Background gradient - shows while image loads */}
+      <div
+        className="absolute inset-0 bg-gradient-to-br from-sky-100 to-emerald-100"
+        aria-hidden="true"
+      />
+
+      {/* Hero Background Image - Mobile */}
       <Image
-        src="/images/hero.png"
-        alt="Bonsai tree at Emerald Lake Garden"
+        src="/images/hero-mobile.webp"
+        alt=""
         fill
-        className="object-cover object-top"
         priority
-        quality={90}
+        className={`md:hidden object-cover object-top transition-opacity duration-500 ${
+          imageLoaded ? "opacity-100" : "opacity-0"
+        }`}
+        sizes="100vw"
+        onLoad={() => setImageLoaded(true)}
+      />
+
+      {/* Hero Background Image - Desktop */}
+      <Image
+        src="/images/hero.webp"
+        alt=""
+        fill
+        priority
+        className={`hidden md:block object-cover object-top transition-opacity duration-500 ${
+          imageLoaded ? "opacity-100" : "opacity-0"
+        }`}
+        sizes="100vw"
+        onLoad={() => setImageLoaded(true)}
       />
 
       {/* Dark Overlay for better text contrast */}
-      <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0 bg-black/30" />
 
       {/* Hero Content */}
       <div
-        className={`sticky top-[50vh] -translate-y-1/2 w-full z-10 text-white px-4 text-center transition-opacity duration-300 ${isVisible ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+        className={`sticky top-[50vh] -translate-y-1/2 w-full z-10 text-white px-4 text-center transition-opacity duration-300 ${
+          isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
       >
         {/* Mobile: Vertical Layout */}
         <h1
