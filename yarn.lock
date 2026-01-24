@@ -1100,6 +1100,7 @@ __metadata:
     react-dom: "npm:19.2.3"
     reading-time: "npm:^1.5.0"
     remark-gfm: "npm:^4.0.1"
+    sharp: "npm:^0.34.5"
     tailwindcss: "npm:^4"
     typescript: "npm:^5"
   languageName: unknown
@@ -2537,7 +2538,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sharp@npm:^0.34.4":
+"sharp@npm:^0.34.4, sharp@npm:^0.34.5":
   version: 0.34.5
   resolution: "sharp@npm:0.34.5"
   dependencies:

@@ -5,6 +5,12 @@ import { useEffect, useState } from "react";
 import { fontFeatures } from "@/lib/fonts";
 import ScrollIndicator from "./ScrollIndicator";
 
+const BLUR_DATA_URL_MOBILE =
+  "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAABQAwCdASoUAA8APzmEuVOvKKWisAgB4CcJQAAG/58bs6aWAAD3LhTPBWvWv4oW8I5MluVlUdsc2H9tN8dCJ9Y/s0SNhtP4/ZETzcTv+9RLMcCFuL61PMbnZ3h4+OOH924XCwOC5P1cETCq68+dxPq0AAA=";
+
+const BLUR_DATA_URL_DESKTOP =
+  "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAAAwAwCdASoUAA8APzmEuVOvKKWisAgB4CcJQAAG/58bsnwAAPcuFM8Fa9a/ihbwjkyW5WVR2xzYf203x0In1j+zRI2G0/j9kRPNxO/71EsxwIW4vrU8xudneHj444f3bhcLA4LlD3MCq/HXWRfO4n1aAAA=";
+
 export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(true);
 
@@ -28,22 +34,38 @@ export default function HeroSection() {
 
   return (
     <section className="relative h-screen md:h-[120vh] lg:h-[140vh] w-full">
-      {/* Hero Background Image */}
+      {/* Hero Background Image - Mobile */}
       <Image
-        src="/images/hero.png"
-        alt="Bonsai tree at Emerald Lake Garden"
+        src="/images/hero-mobile.webp"
+        alt=""
         fill
-        className="object-cover object-top"
         priority
-        quality={90}
+        placeholder="blur"
+        blurDataURL={BLUR_DATA_URL_MOBILE}
+        className="md:hidden object-cover object-top"
+        sizes="100vw"
+      />
+
+      {/* Hero Background Image - Desktop */}
+      <Image
+        src="/images/hero.webp"
+        alt=""
+        fill
+        priority
+        placeholder="blur"
+        blurDataURL={BLUR_DATA_URL_DESKTOP}
+        className="hidden md:block object-cover object-top"
+        sizes="100vw"
       />
 
       {/* Dark Overlay for better text contrast */}
-      <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0 bg-black/30" />
 
       {/* Hero Content */}
       <div
-        className={`sticky top-[50vh] -translate-y-1/2 w-full z-10 text-white px-4 text-center transition-opacity duration-300 ${isVisible ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+        className={`sticky top-[50vh] -translate-y-1/2 w-full z-10 text-white px-4 text-center transition-opacity duration-300 ${
+          isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
       >
         {/* Mobile: Vertical Layout */}
         <h1
