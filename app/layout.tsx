@@ -1,3 +1,4 @@
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Footer from "@/components/layout/Footer";
@@ -48,6 +49,7 @@ export default function RootLayout({
         <ScrollingHeader />
         <main className="min-h-screen">{children}</main>
         <Footer />
+        <SpeedInsights />
       </body>
     </html>
   );

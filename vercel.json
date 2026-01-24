@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.emeraldlakebonsai.com"
+        }
+      ],
+      "destination": "https://emeraldlakebonsai.com/:path*",
+      "permanent": true
+    }
+  ]
+}
