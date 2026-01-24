@@ -17,7 +17,7 @@ export default function ContentBlock({
   return (
     <section className="grid grid-cols-1 lg:grid-cols-2 items-start">
       <div
-        className={`relative aspect-4/3 w-full ${reversed ? "lg:order-1" : "lg:order-2"}`}
+        className={`relative aspect-4/3 w-full bg-gray-200 rounded-md ${reversed ? "lg:order-1" : "lg:order-2"}`}
       >
         <Image
           src={imageSrc}

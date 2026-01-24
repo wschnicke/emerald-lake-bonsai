@@ -15,7 +15,7 @@ export default function AboutPage() {
       <Container className="pt-6">
         <div>
           <ContentBlock
-            imageSrc="/images/understory-vine-maple.jpg"
+            imageSrc="/images/understory-vine-maple.webp"
             imageAlt="A photo of a vine maple in the understory in Olympic National Forest"
             reversed={false}
           >
@@ -32,7 +32,7 @@ export default function AboutPage() {
           </ContentBlock>
 
           <ContentBlock
-            imageSrc="/images/class-pic.jpg"
+            imageSrc="/images/class-pic.webp"
             imageAlt="A class of bonsai students"
             reversed={true}
           >
@@ -60,7 +60,7 @@ export default function AboutPage() {
           </ContentBlock>
 
           <ContentBlock
-            imageSrc="/images/will-at-nbpm.jpg"
+            imageSrc="/images/will-at-nbpm.webp"
             imageAlt="Will at the National Bonsai and Penjing Museum -- Tree by Bjorn Bjorholm"
             reversed={false}
           >

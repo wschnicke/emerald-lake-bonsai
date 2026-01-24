@@ -21,7 +21,7 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
     >
       <Card className="h-full hover:shadow-lg transition-shadow">
         {metadata.featuredImage && (
-          <div className="relative w-full h-48">
+          <div className="relative w-full h-48 bg-gray-200">
             <Image
               src={metadata.featuredImage}
               alt={metadata.title}

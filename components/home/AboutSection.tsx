@@ -22,9 +22,9 @@ export default function AboutSection() {
             <Button variant="outline">Learn more</Button>
           </Link>
         </div>
-        <div className="relative aspect-4/3 w-full">
+        <div className="relative aspect-4/3 w-full bg-gray-200 rounded-lg">
           <Image
-            src="/images/will-portrait.png"
+            src="/images/will-portrait.webp"
             alt="Will at Pacific Bonsai Museum with bonsai"
             fill
             className="object-cover rounded-lg"
